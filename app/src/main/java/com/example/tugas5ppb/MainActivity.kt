@@ -121,11 +121,10 @@ fun ConversionResults(value: String, selectedUnit: String) {
     )
 
     conversions.forEach { (unit, result) ->
-        // Format the result: if it's effectively an integer, show no decimals; otherwise, show up to 5 decimal places without trailing zeros
         val formattedResult = if (result == result.toLong().toDouble()) {
             result.toLong().toString() // Show as integer (e.g., 0 or 40)
         } else {
-            "%.5f".format(result).trimEnd('0').trimEnd('.') // Show up to 5 decimals, remove trailing zeros and decimal point if unnecessary
+            "%.5f".format(result).trimEnd('0').trimEnd('.') 
         }
 
         OutlinedTextField(
